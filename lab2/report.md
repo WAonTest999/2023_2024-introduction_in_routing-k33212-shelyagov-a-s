@@ -185,12 +185,17 @@ add distance=1 dst-address=192.168.3.0/24 gateway=192.168.13.1
 
 Проверка доступности роутеров из разных сетей:
   PC1:
+  
 <img src="./img/ping1_2.png" width=500>
 <img src="./img/ping1_3.png" width=500>
+
   PC2:
+  
 <img src="./img/ping2_1.png" width=500>
 <img src="./img/ping2_3.png" width=500>
+
   PC3:
+  
 <img src="./img/ping3_1.png" width=500>
 <img src="./img/ping3_2.png" width=500>
 
