@@ -15,8 +15,8 @@ Date of finished: 17.12.2023
 
 ## Ход работы   
 
-Развернем сеть в ContainerLab. Перед запуском сети были созданы контейнеры ```ubuntu:latest```(последняя версия Ubuntu) и ```vrnetlab/vr-routeros:6.47.9```(RouterOS-контейнер)
-Также, пропишем config-файлы для Mikrotik'ов и скрпты, настрaивающие Ubunt'ы после запуска:
+Развернем сеть в ContainerLab. Перед запуском сети были созданы образы ```ubuntu:latest```(последняя версия Ubuntu) и ```vrnetlab/vr-routeros:6.47.9```(RouterOS-образ)
+Также, пропишем config-файлы для Mikrotik'ов и скрипты, настрaивающие Ubunt'ы после запуска:
 
 ### Файл, конфигурирующий сеть
 ```
@@ -78,7 +78,7 @@ topology:
 <img src="./img/scheme1.png" width=900>
 
 ### Скрипт для настройкки Ubuntu
-(Также, заранее сгенерировал ssh-ключи и поместил публчный в этот скрипт)
+(Также, заранее сгенерировал ssh-ключи и поместил публичный в этот скрипт)
 ```
 #!/bin/bash
 mkdir /root/.ssh
@@ -95,7 +95,7 @@ echo  "ubuntu:ubuntu" | sudo chpasswd
 usermod -aG sudo "ubuntu"
 service ssh start
 
-suod dhclient eth1
+sudo dhclient eth1
 ```
 
 ### Config-файл для роутера(R01):
