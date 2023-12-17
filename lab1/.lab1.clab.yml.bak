@@ -31,15 +31,17 @@ topology:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
       mgmt_ipv4: 172.20.20.11
+      startup-config: SW01.cfg
     SW02.L3.01.TEST:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
       mgmt-ipv4: 172.20.20.12
-      #startup-config: SW02.cfg
+      startup-config: SW02.cfg
     SW02.L3.02.TEST:
       kind: vr-ros
       image: vrnetlab/vr-routeros:6.47.9
       mgmt-ipv4: 172.20.20.13
+      startup-config: SW02.cfg
   links:
     - endpoints: ["RO1.TEST:eth1", "SW01.L3.01.TEST:eth1"]
     - endpoints: ["SW02.L3.01.TEST:eth1", "SW01.L3.01.TEST:eth2"]
