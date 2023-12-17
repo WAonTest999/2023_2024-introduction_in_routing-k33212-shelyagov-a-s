@@ -170,18 +170,18 @@ add bridge=bridge1 interface=ether3
 ### Проверка правильности настройкки:
 Проверка работы dhcp-серверов:
 
-<img src="./img/dhcp1.png" width=300>
-<img src="./img/dhcp2.png" width=300>
+<img src="./img/dhcp1.png" width=500>
+<img src="./img/dhcp2.png" width=500>
 
 Проверка доступности роутера:
 
-<img src="./img/r1.png" width=300>
-<img src="./img/r2.png" width=300>
+<img src="./img/r1.png" width=500>
+<img src="./img/r2.png" width=500>
 
 Проверка работы VLAN'ов:
 
-<img src="./img/vlan1.png" width=300>
-<img src="./img/vlan2.png" width=300>
+<img src="./img/vlan1.png" width=500>
+<img src="./img/vlan2.png" width=500>
 
 ## Вывод
 В результате лабораторной работы удалось ознакомиться с инструментом ContainerLab, а также создать сеть и настроить устройства на базе ОС Linux и RouterOS.
