@@ -1,0 +1,76 @@
+name: test3
+
+mgmt:
+  ipv4-subnet: 172.20.20.0/24
+
+
+topology:
+  nodes:
+    RO1.MSK:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 172.20.20.11
+      startup-config: R01.LBN.cfg
+    RO1.SVL:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 172.20.20.12
+      startup-config: R01.SVL.cfg
+    RO1.LND:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 172.20.20.13
+      startup-config: R01.LND.cfg
+    RO1.NY:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 172.20.20.14
+      startup-config: R01.NY.cfg
+    RO1.HKI:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 172.20.20.15
+      startup-config: R01.HKI.cfg
+    RO1.SPB:
+      kind: vr-ros
+      image: vrnetlab/vr-routeros:6.47.9
+      mgmt-ipv4: 172.20.20.16
+      startup-config: R01.SPB.cfg
+      
+      
+    PC1:
+      kind: linux
+      image: ubuntu:latest
+      mgmt-ipv4: 172.20.20.21
+      binds:
+        - setup_ubuntu.sh:/tmp/setup.sh
+      exec:
+        - bash /tmp/setup.sh  
+    PC2:
+      kind: linux
+      image: ubuntu:latest
+      mgmt-ipv4: 172.20.20.22
+      binds:
+        - setup_ubuntu.sh:/tmp/setup.sh
+      exec:
+        - bash /tmp/setup.sh  
+    PC3:
+      kind: linux
+      image: ubuntu:latest
+      mgmt-ipv4: 172.20.20.23
+      binds:
+        - setup_ubuntu.sh:/tmp/setup.sh
+      exec:
+        - bash /tmp/setup.sh
+
+    
+  links:
+    - endpoints: ["RO1.SPB:eth1", "PC1:eth1"]
+    - endpoints: ["RO1.SPB:eth2", "RO1.HKI:eth3"]
+    - endpoints: ["RO1.NY:eth1", "PC2:eth1"]
+    - endpoints: ["RO1.NY:eth2", "RO1.LND:eth3"]
+    - endpoints: ["RO1.SVL:eth1", "PC3:eth1"]
+    - endpoints: ["RO1.SVL:eth2", "RO1.LBN:eth3"]
+    - endpoints: ["RO1.LND:eth1", "RO1.HKI:eth1"]
+    - endpoints: ["RO1.LND:eth2", "RO1.LBN:eth1"]
+    - endpoints: ["RO1.HKI:eth2", "RO1.LBN:eth2"]
